@@ -6,7 +6,7 @@ import Notice from "../components/Notice.jsx";
 
 export default function Login() {
   const { user, login } = useAuth(); const navigate = useNavigate();
-  const [email, setEmail] = useState("student@campusconnect.edu"); const [password, setPassword] = useState("Student123!");
+  const [email, setEmail] = useState(""); const [password, setPassword] = useState("");
   const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
   if (user) return <Navigate to="/dashboard" replace />;
   async function submit(e) { e.preventDefault(); setError(""); setBusy(true); try { await login(email, password); navigate("/dashboard"); } catch (e) { setError(e.message); } finally { setBusy(false); } }
